@@ -24,11 +24,12 @@ public class App extends Application {
     private static Scene scene;
     private SimpleClient client;
     private GameController gameController;
+    private static String serverHost = "localhost";
 
     @Override
     public void start(Stage stage) throws IOException {
     	EventBus.getDefault().register(this);
-    	client = SimpleClient.getClient();
+    	client = SimpleClient.getClient(serverHost);
     	client.openConnection();
         
         // Load game FXML and get controller
@@ -91,6 +92,13 @@ public class App extends Application {
     }
 
 	public static void main(String[] args) {
+		// Check if IP address is provided as command-line argument
+		if (args.length > 0) {
+			serverHost = args[0];
+			System.out.println("Connecting to server at: " + serverHost);
+		} else {
+			System.out.println("No IP provided, using localhost. To connect to remote server, use: java -jar client.jar <SERVER_IP>");
+		}
         launch();
     }
 
