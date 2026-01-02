@@ -79,7 +79,7 @@
 
 ## לינק ל-Repository
 
-[הזינו כאן את הלינק ל-GitHub repository שלכם]
+https://github.com/ayakhawalid/Tic-Tac-Toe-Waffle-Game
 
 ## הוספת קבצי JAR ל-Repository
 
