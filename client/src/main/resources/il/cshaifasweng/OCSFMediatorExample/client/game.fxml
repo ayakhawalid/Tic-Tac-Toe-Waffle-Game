@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.GameController">
+   <children>
+      <Label fx:id="statusLabel" text="Connecting to server..." style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+      <Label fx:id="playerLabel" text="" style="-fx-font-size: 14px;" />
+      <Label fx:id="legendLabel" text="X = Blueberry | O = Butter" style="-fx-font-size: 12px; -fx-text-fill: #666;" />
+      
+      <GridPane fx:id="gameBoard" hgap="8" vgap="8" alignment="CENTER" maxWidth="270" maxHeight="270" minWidth="270" minHeight="270" style="-fx-background-color: #D2B48C;">
+         <columnConstraints>
+            <ColumnConstraints minWidth="80" prefWidth="80" maxWidth="80" />
+            <ColumnConstraints minWidth="80" prefWidth="80" maxWidth="80" />
+            <ColumnConstraints minWidth="80" prefWidth="80" maxWidth="80" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="80" prefHeight="80" maxHeight="80" />
+            <RowConstraints minHeight="80" prefHeight="80" maxHeight="80" />
+            <RowConstraints minHeight="80" prefHeight="80" maxHeight="80" />
+         </rowConstraints>
+      </GridPane>
+      
+      <HBox spacing="10" alignment="CENTER">
+         <Button fx:id="newGameButton" text="New Game" onAction="#newGame" />
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
+

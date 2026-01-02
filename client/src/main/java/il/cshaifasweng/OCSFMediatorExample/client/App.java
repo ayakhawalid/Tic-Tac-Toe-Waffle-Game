@@ -14,6 +14,8 @@ import java.io.IOException;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import il.cshaifasweng.OCSFMediatorExample.entities.GameMessage;
+
 /**
  * JavaFX App
  */
@@ -21,13 +23,21 @@ public class App extends Application {
 
     private static Scene scene;
     private SimpleClient client;
+    private GameController gameController;
 
     @Override
     public void start(Stage stage) throws IOException {
     	EventBus.getDefault().register(this);
     	client = SimpleClient.getClient();
     	client.openConnection();
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        
+        // Load game FXML and get controller
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("game.fxml"));
+        Parent root = fxmlLoader.load();
+        gameController = fxmlLoader.getController();
+        
+        scene = new Scene(root, 400, 500);
+        stage.setTitle("Tic-Tac-Toe Waffle Game");
         stage.setScene(scene);
         stage.show();
     }
@@ -47,10 +57,25 @@ public class App extends Application {
 	public void stop() throws Exception {
 		// TODO Auto-generated method stub
     	EventBus.getDefault().unregister(this);
-        client.sendToServer("remove client");
+    	try {
+    		GameMessage disconnectMsg = new GameMessage(GameMessage.DISCONNECT);
+    		client.sendToServer(disconnectMsg);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
         client.closeConnection();
 		super.stop();
 	}
+    
+    @Subscribe
+    public void onGameEvent(GameEvent event) {
+    	Platform.runLater(() -> {
+    		GameMessage msg = event.getGameMessage();
+    		if (gameController != null) {
+    			gameController.updateGameState(msg);
+    		}
+    	});
+    }
     
     @Subscribe
     public void onWarningEvent(WarningEvent event) {
