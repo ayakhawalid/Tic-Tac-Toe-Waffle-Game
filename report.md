@@ -92,8 +92,6 @@ https://github.com/ayakhawalid/Tic-Tac-Toe-Waffle-Game
 ## תמונות מהמשחק
 
 ### תמונות ממשק המשתמש:
-![תמונה 1](images/IMG_20260103_000629.jpg)
-![תמונה 2](images/IMG_20260103_000645.jpg)
 ![תמונה 3](images/IMG_20260103_000705.jpg)
 ![תמונה 4](images/IMG_20260103_000827.jpg)
 ![תמונה 5](images/IMG_20260103_000832.jpg)
