@@ -88,14 +88,6 @@ https://github.com/ayakhawalid/Tic-Tac-Toe-Waffle-Game
 - `JAR/server.jar` - קובץ השרת
 - `JAR/client.jar` - קובץ הלקוח
 
-להוספת הקבצים ל-repository, הרץ:
-```bash
-git add -f JAR/server.jar JAR/client.jar
-git commit -m "Add JAR files for submission"
-git push
-```
-
-**הערה:** הקבצים מוגדרים ב-.gitignore, לכן יש להשתמש ב-`-f` (force) כדי להוסיף אותם.
 
 ## תמונות מהמשחק
 
